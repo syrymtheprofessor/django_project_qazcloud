@@ -1,0 +1,259 @@
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@300;400;600;700&display=swap');
+
+
+html {
+    scroll-behavior: smooth;
+}
+body {
+    font-family: 'Source Sans 3', sans-serif;
+    margin: 0;
+    padding: 0;
+    background: #fff;
+    
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+h1, h2, h3, h4 {
+    margin: 0;
+    padding: 0;
+    font-family: 'Source Sans 3', sans-serif;
+
+}
+
+/* Header */
+
+.documents-header-inner,
+.footer-inner,
+.table-part {
+    max-width: 75rem;
+    margin: 0 auto;
+    padding: .6rem 0;
+    font-family: 'Source Sans 3', sans-serif;
+}
+.header-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.header-nav {
+    padding-right: 18%;
+
+}
+
+.header_link {
+    color: #000;
+    font-size: 15px;
+    font-weight: 400;
+    margin: 0 .7rem;
+}
+
+.divider {
+    border-bottom: 1px solid #eaeaea;
+}
+
+.header-search {
+    width: 9rem;
+    padding: .7rem 0;
+    padding-left: .8rem;
+    border: none;
+    border: 1px solid #DCDCDC;
+    border-radius: 7px;
+    background: #F8F8F8;
+}
+
+.search-block {
+    position: relative;
+
+}
+
+.search-button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    width: 22px;
+    height: 22px;
+
+    bottom: 0;
+    margin: auto 0;
+}
+
+.search-button img {
+    width: 22px;
+    height: 22px;
+}
+
+.header-contacts {
+    margin: auto 0;
+
+    display: flex;
+    flex-direction: row-table-table;
+}
+
+.header-btn {
+    color: white;
+    padding: 0;
+    border: none;
+    width: 11rem;
+    height: 2.7rem;
+    background: #14733A;
+    border-radius: 10px;
+    margin-left: .7rem;
+    font-weight: 400;
+    font-size: 13px;
+}
+
+
+/* DOCUMENTS HEADER PART */
+.documents-header {
+    color: white;
+    position: relative;
+    z-index: 1;
+    height: 30rem;
+}
+
+.documents-header-content {
+    max-width: 36rem;
+}
+
+.documents-header-content h1 {
+    padding-top: 6.3rem;
+    font-weight: 600;
+    font-size: 63.0201px;
+    line-height: 65px;
+}
+
+.documents-header-content p {
+    font-weight: 300;
+    font-size: 25.54px;
+    line-height: 30px;
+    padding-bottom: 7.4rem;
+}
+
+
+/* table */
+
+.table-part {
+    margin-top: -2rem;
+    position: relative;
+    background: white;
+    z-index: 99;
+    padding-top: 0;
+}
+
+.table-part-inner {
+    background: inherit;
+    width: 100%; 
+    margin: 0 auto;
+    border: 1px solid #E3DEDE;
+    box-shadow: 0px 5px 11px rgba(154, 154, 154, 0.25);
+
+}
+
+
+.table-search {
+    position: relative;
+}
+
+.table-search input {
+    padding: 0.9rem 0;
+    border: 1px solid #DCDCDC;
+    padding-left: 0.5rem;
+    border-radius: 10px;
+    width: 17.5rem;
+    margin: auto 0;
+}
+
+.table-header {
+    border-top: 1px solid #ddd;
+}
+
+.table-header-text {
+    font-weight: 600;
+    font-size: 24.1856px;
+    line-height: 25px;
+}
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+th, td {
+    padding: 8px;
+    text-align: center;
+    border-bottom: 1px solid #ddd;
+}
+
+.naming {
+    text-align: left;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 16px;
+}
+
+
+.row-table:hover {
+    background: rgba(0, 123, 255, 0.03); 
+}
+
+.custom-table tbody tr th:before, .custom-table tbody tr th:after, .custom-table tbody tr td:before, .custom-table tbody tr td:after {
+    -webkit-transition: .3s all ease;
+    -o-transition: .3s all ease;
+    transition: .3s all ease;
+    content: "";
+    left: 0;
+    right: 0;
+    position: absolute;
+    height: 1px;
+    background: #007bff;
+    width: 100%;
+    opacity: 0;
+    visibility: hidden; 
+}
+
+.tb-header-date {
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 16px;
+}
+
+
+.tb-header-count {
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 14px;
+    color: #615C5C;
+}
+
+.table-header-text {
+    margin-left: 2vh;
+}
+.table-header-div {
+    margin: 1vh 2vh;
+}
+
+.table-header-text {
+    font-size: 2.5vh;
+}
+
+
+.row-table {
+    height: 8.5rem;
+}
+
+
+.row-table-text {
+    font-weight: 600;
+    font-size: 13.9606px;
+    line-height: 16px;
+    color: #000;
+    color: black;
+}
+
+
+

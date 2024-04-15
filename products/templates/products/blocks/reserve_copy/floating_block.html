@@ -1,0 +1,14 @@
+
+<section class="floating-block-part">
+    <div class="floating-div">
+        <div class="floating-first-el"><span>{{self.context}}</span></div>
+        <div class="inner--nav">
+            <nav class="nav">
+                {% for item in self.js_link %}
+                <a>{{item}}</a>
+                {% endfor %}
+            </nav>
+            <button class='inner-btn'>Связаться с нами</button>
+        </div>
+    </div>
+</section>

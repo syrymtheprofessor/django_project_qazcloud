@@ -1,0 +1,269 @@
+{% load static wagtailimages_tags %}
+
+
+<header>
+    <div class="header-container">
+        <nav class="navigation">
+            <a href="{% url 'wagtail_serve' '' %}" class="logo">
+                <img src="{% static 'header/img/logo.png' %}" alt="Logo" class="logo-img" />
+            </a>
+            <ul class="nav_menu">
+
+                <li class="nav_list nav_list_menu">
+                    <a href="#!" class="nav_link">
+                        <span>QazCloud</span>
+                        <ion-icon name="chevron-down-outline"></ion-icon>
+                    </a>
+                    <div class="dropdown dropdown-unique">
+                        <div class="dropdown-inner">
+                            <div class="dropdown-item dropdown-navbar" style="background-color: #F4F5F6;">
+                                <div class="item-list"
+                                    style=".dropdown-navbar .item-list:nth-child(1):before {content:none;}">
+                                    <div class="item-list-info">
+                                        <a href="#tab-10" class="tab-link tab-link--active">
+                                            <h4 style="margin-top: 15px;left:20%;position:relative">О компании
+                                            </h4>
+                                        </a>
+                                        <a href="#tab-11" class="tab-link">
+                                            <h4 style="margin-top: 15px;left:20%;position:relative">Карьера
+                                            </h4>
+                                        </a>
+                                        <a href="#tab-12" class="tab-link">
+                                            <h4 style="margin-top: 15px;left:20%;position:relative">
+                                                Юридическая<br>
+                                                информация
+                                            </h4>
+                                        </a>
+                                        <a href="#tab-13" class="tab-link">
+                                            <h4 style="margin-top: 15px;left:20%;position:relative">
+                                                Контакты
+                                            </h4>
+                                        </a>
+                                        <a href="#tab-14" class="tab-link">
+                                            <h4 style="margin-top: 15px;left:20%;position:relative">
+                                                Пресса
+                                            </h4>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div id="tab-10" class="dropdown-content">
+                                <div class="dropdown-item">
+                                    <div class="item-list">
+                                        <div class="flex-item">
+                                            <img src="{% static 'header/img/icon/q1.svg' %}" alt="">
+                                            <p class="sub-title">{{qazcloud_menu.about_title }}</p>
+                                        </div>
+                                        <div class="sub-text">
+                                            {{ qazcloud_menu.about_context }}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div id="tab-11" class="dropdown-content">
+                                <div class="dropdown-item">
+                                    <div class="item-list">
+                                        <div class="flex-item">
+                                            <img src="{% static 'header/img/icon/q2.svg' %}" alt="">
+                                            <p class="sub-title">{{qazcloud_menu.career_title }}</p>
+                                        </div>
+                                        <div class="sub-text">
+                                            <p>{{qazcloud_menu.career_context }}</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div id="tab-12" class="dropdown-content">
+                                <div class="dropdown-item dropdown-item-unique">
+                                    <div class="item-list">
+                                        <div class="flex-item">
+                                            <img src="{% static 'header/img/icon/q2.svg' %}" alt="">
+                                            <p class="sub-title">{{qazcloud_menu.law_info }}</p>
+                                        </div>
+                                        <div class="sub-text">
+                                            {{qazcloud_menu.law_context }}
+                                        </div>
+                                    </div>
+                                    <div class="item-list">
+                                        <div class="flex-item">
+                                            <img src="{% static 'header/img/icon/q5.svg' %}" alt="">
+                                            <p class="sub-title">{{qazcloud_menu.law_address }}</p>
+                                        </div>
+                                        <div class="sub-text">
+                                            {{qazcloud_menu.law_address_name }} <br>
+                                            <span>{{qazcloud_menu.law_address_address }}</span>
+                                        </div>
+                                    </div>
+                                    <div class="item-list">
+                                        <div class="flex-item">
+                                            <img src="{% static 'header/img/icon/q3.svg' %}" alt="">
+                                            <p class="sub-title">Пользовательское соглашение</p>
+                                        </div>
+                                        <div class="flex-item">
+                                            <img src="{% static 'header/img/icon/q4.svg' %}" alt="">
+                                            <p class="sub-title">Правила пользования сервисами и услугами</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div id="tab-13" class="dropdown-content">
+                                <div class="dropdown-item dropdown-item-unique2">
+                                    <div class="item-list">
+                                        <div class="flex-item">
+                                            <img src="{% static 'header/img/icon/q5.svg' %}" alt="">
+                                            <p class="sub-title">{{qazcloud_menu.address_title }}</p>
+                                        </div>
+                                        <div class="sub-text">
+                                            {{qazcloud_menu.address_name1}}<br> <span>{{qazcloud_menu.address_address1}}</span>
+                                        </div>
+                                        <div class="sub-text">
+                                           {{qazcloud_menu.address_name2}}<br> <span>{{qazcloud_menu.address_address2}}</span>
+                                        </div>
+                                        <div class="sub-text">
+                                           {{qazcloud_menu.address_name3}}<br> <span>{{qazcloud_menu.address_address3}}</span>
+                                        </div>
+                                        <div class="links">
+                                            <a href="#">
+                                                <img src="{% static 'header/img/icon/inst.svg' %}" alt="">
+                                            </a>
+                                            <a href="#">
+                                                <img src="{% static 'header/img/icon/face.svg' %}" alt="">
+                                            </a>
+                                            <a href="#">
+                                                <img src="{% static 'header/img/icon/linkedin.svg' %}" alt="">
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <div class="item-list">
+                                        <div class="flex-item">
+                                            <img src="{% static 'header/img/icon/q6.svg' %}" alt="">
+                                            <p class="sub-title">{{qazcloud_menu.contacts_contacts_title}}</p>
+                                        </div>
+                                        <div class="sub-text">
+                                            {{qazcloud_menu.contacts_tech_title}}<br> <span>{{qazcloud_menu.contacts_tech_number}}</span>
+                                        </div>
+                                        <div class="sub-text">
+                                            {{qazcloud_menu.contacts_sales_title}}<br> <span>{{qazcloud_menu.contacts_sales_number}}</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div id="tab-14" class="dropdown-content">
+                                <div class="dropdown-item">
+                                    <div class="item-list">
+                                        <div class="flex-item">
+                                            <img src="{% static 'header/img/icon/q7.svg' %}" alt="">
+                                            <p class="sub-title sub-title600">{{qazcloud_menu.press_mail}}</p>
+                                        </div>
+                                        <div class="sub-text">
+                                            {{qazcloud_menu.press_context}}
+                                        </div>
+                                    </div>
+                                    <div class="logo-box">
+                                        <div class="logo-title">Логотип</div>
+                                            {% image qazcloud_menu.logo1 fill-80x43 as logo1 %}
+                                            <img class="logo-box-logo" src="{{logo1.url}}" alt="">
+                                        <div class="flex-item">
+                                            {% image qazcloud_menu.logo2 fill-80x43  as logo2 %}
+
+                                            <img src="{{logo2.url}}" alt="">
+                                            <p>Скачать логотип</p>
+                                        </div>
+                                        <div class="flex-item">
+                                            <img src="{% static 'header/img/icon/file.svg' %}" alt="">
+                                            <p>Руководство по использованию
+                                                логотипа QazCloud</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+
+
+
+
+
+
+                {% for key, value in map.items%}
+                {% if value|length %}
+                <li class="nav_list nav_list_menu">
+                    <a href="{{ key.link_page.url }}" class="nav_link">
+                        <span>{{ key.link_title }}</span>
+                        <ion-icon name="chevron-down-outline"></ion-icon>
+                    </a>
+                    <div class="dropdown">
+                        <div class="dropdown-inner">
+                            <div class="dropdown-item dropdown-navbar" style="background-color: #F4F5F6;">
+                                <div class="item-list">
+                                    <form action="" class="d7">
+                                        <input type="text" placeholder="Поиск...">
+                                    </form>
+                                </div>
+                                <div class="item-list">
+                                    <div class="item-list-info">
+                                        {% for subMenu in value.keys %}
+                                        <a href="#tab-{{ forloop.parentloop.counter }}-{{forloop.counter}}"
+                                            class="tab-link tab-link--active">
+                                            <h4 style="margin-top: 15px;left:20%;position:relative">
+                                                {{subMenu.subitem_title}}
+                                            </h4>
+                                        </a>
+                                        {% endfor %}
+                                    </div>
+                                </div>
+                            </div>
+
+                            {% for dropitems in value.values %}
+
+                            <div id="tab-{{forloop.parentloop.counter}}-{{forloop.counter}}" class="dropdown-content">
+                                {% for item in dropitems %}
+                                <div class="dropdown-item">
+                                    {% for i in item %}
+                                    <div class="item-list">
+                                        <a href="{{i.link_page.url}}">
+                                            <div class="item-img">
+                                                {% image i.dropdown_icon original as dropdown_image %}
+                                                <img src="{{dropdown_image.url}}" alt="Icon" />
+                                            </div>
+                                        </a>
+                                        <a href="{{i.link_page.url}}">
+                                            <div class="item-list-info">
+                                                <h4>{{ i.dropdown_header }}</h4>
+                                                <p>{{ i.dropdown_context }}</p>
+                                            </div>
+                                        </a>
+
+
+                                    </div>
+                                    {% endfor %}
+                                </div>
+                                {% endfor %}
+                            </div>
+                            {% endfor %}
+
+
+
+                        </div>
+                    </div>
+                </li>
+                {% else %}
+                <li class="nav_list">
+                    <a href="{{ key.link_page.url }}" class="nav_link">
+                        <span>{{ key.link_title }}</span>
+                    </a>
+                </li>
+                {% endif %}
+                {% endfor %}
+
+            </ul>
+            <div class="nav_action">
+                <a href="#!" class="btn-primary">Связаться с нами</a>
+                <div class="nav_toggle">
+                    <ion-icon name="menu-outline"></ion-icon>
+                </div>
+            </div>
+        </nav>
+    </div>
+</header>

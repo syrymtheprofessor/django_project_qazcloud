@@ -1,0 +1,18 @@
+{% load static %}
+<section class="service-part">
+    <div class="service-inner">
+        <h4>{{self.little_header}}</h4>
+        <h2>{{self.main_header}} </h2>
+        <p class="service-inner-context">{{self.paragraph}} </p>
+        <div class="worst-part">
+            <img class="service-img" src="{% static 'products/equipment_placement/img/service-img.png' %}" alt="">
+            <div class="service-context">
+                {% for item in self.image_context %}
+                <div class="worst-block wb{{forloop.counter}}">
+                    <p>{{item.context}}</p>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</section>

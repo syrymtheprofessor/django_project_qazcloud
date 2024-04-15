@@ -1,0 +1,33 @@
+{% load wagtailimages_tags %}
+
+<section class="usage-scenario-part">
+    <div class="usage-inner">
+        <h4>{{self.little_header}}</h4>
+        <h2>{{ self.main_header }}</h2>
+        <div class="usage-flexbox-1">
+            {% for item in self.little_scenarios %}
+            <div class="usage-col">
+                <h6 class="usage-col-first">{{item.scenario_header}}</h6>
+                <p class="usage-col-second">{{item.scenario_paragraph1 }}</p>
+
+                {% image item.image original as scenario_little_img %}
+                <img src="{{scenario_little_img.url}}" alt="">
+                <p class="usage-col-third">{{item.scenario_paragraph2 }}</p>
+            </div>
+            {% endfor %}
+
+        </div>
+        {% for item in self.big_scenarios %}
+
+        <div class="usage-box-2">
+            <h6 class="usage-col-first">{{item.scenario_header}}</h6>
+            <p class="usage-col-second">{{item.scenario_paragraph1 }}</p>
+
+            {% image item.image original as scenario_little_img %}
+            <img src="{{scenario_little_img.url}}" alt="">
+            <p class="usage-col-third">{{item.scenario_paragraph2 }}</p>
+        </div>
+        {% endfor %}
+
+    </div>
+</section>

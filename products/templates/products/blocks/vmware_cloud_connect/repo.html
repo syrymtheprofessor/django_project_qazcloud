@@ -1,0 +1,46 @@
+{% load static %}
+{% load wagtailimages_tags %}
+<section class="repo" id="repo__about">
+    <div class="repo-inner">
+        <h4 class="repo-title">{{self.little_header}}</h4>
+        <div class="repo-content">
+            <div class="repo-left">
+                <h2>{{self.main_header}}</h2>
+            </div>
+            <div class="repo-right">
+                {% for item in self.repo_items %}
+                <div class="repo__item">
+                    {% image item.icon original as icon_image %}
+                    <img src="{{icon_image.url}}" alt="">
+                    <div class="repo__text">
+                        <h4>{{item.title}}</h4>
+                        <p>{{item.body}}</p>
+                    </div>
+                </div>
+                {% endfor %}
+                <!-- <div class="repo__item">
+                    <img src="{% static 'main/veeam_cloud_connect/assets/img/repo_img1.png'  %}" alt="">
+                    <div class="repo__text">
+                        <h4>Самостоятельное управление</h4>
+                        <p>Настраивайте и управляйте резервным копированием в собственной консоли Veeam</p>
+                    </div>
+                </div>
+                <div class="repo__item">
+                    <img src="{% static 'main/veeam_cloud_connect/assets/img/repo_img3.png'  %}" alt="">
+                    <div class="repo__text">
+                        <h4>Безопасность данных</h4>
+                        <p>Использование SSL/AES-шифрования при передачи/хранении данных</p>
+                    </div>
+                </div>
+                <div class="repo__item">
+                    <img src="{% static 'main/veeam_cloud_connect/assets/img/repo_img4.png'  %}" alt="">
+                    <div class="repo__text">
+                        <h4>Круглосуточная поддержка</h4>
+                        <p>Наша поддержка работает без выходных и праздников, мы всегда готовы проконсультировать и
+                            решить любую проблему</p>
+                    </div>
+                </div> -->
+            </div>
+        </div>
+    </div>
+</section>

@@ -1,0 +1,36 @@
+{% load wagtailimages_tags %}
+
+
+<section class="develop-together">
+    <div class="ellipse-outer">
+        {% image self.elipse original as elipse %}
+        <img class="dev-ellipse" src="{{elipse.url}}" alt="">
+    </div>
+    <div class="develop-inner">
+        <div class="develop-main">
+            <div class="develop-main-text">
+                <span>{{self.main_header}}</span>
+            </div>
+            <div class="deelop-short-factvs">
+                <div class="wrapper">
+                    {% for item in self.items %}
+                    <div class="wrapper-el">
+                        <h4>{{item.title}}</h4>
+                        <span>{{item.subtitle}}</span>
+                    </div>
+                    {% endfor %}
+                    
+                </div>
+            </div>
+            
+        </div>
+        <div class="dev-companies">
+            {% for img in self.icons %}
+            {% image img.icon original as img %}
+            <img class="dev-companies-logo" src="{{img.url}}" alt="">
+            {% endfor %}
+        </div>
+
+        
+    </div>
+</section>

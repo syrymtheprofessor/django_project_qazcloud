@@ -1,0 +1,66 @@
+{% load wagtailimages_tags %}
+
+
+<section class="our-team-part">
+    <div class="team-inner">
+        <h4>{{self.minn_header}}</h4>
+        <h2 class="team-main-text">{{self.main_header}}</h2>
+        <p class="team-main-paragraph">{{self.description}}</p>
+        <div class="row gy-4">
+            {% for item in self.items%}
+            <div class="employee">
+                {% image item.image original as img%}
+                <img src="{{img.url}}" alt="">
+                <h4>{{item.title}}</h4>
+                <span>{{item.name}}</span>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+{% comment %} 
+<section class="our-team-part">
+        <div class="team-inner">
+            <h4>Наша команда</h4>
+            <h2 class="team-main-text">Познакомьтесь с нашим<br>руководством компании</h2>
+            <p class="team-main-paragraph">Мы считаем, что облачные вычисления - это лучший инструмент модификации
+                Компании в наше время, способный
+                превратить нереалистичную цель в достижимую действительность. Наша миссия - предоставить опыт, ресурсы и
+                стратегическое восприятие, необходимое для преобразования вашей облачной инфраструктуры.</p>
+            <div class="employees">
+                <div class="employee">
+                    <img src="assets/img/employee1.png" alt="">
+                    <h4>Генеральный Директор</h4>
+                    <span>Есергепов Касым Рамазанович</span>
+                </div>
+                <div class="employee">
+                    <img src="assets/img/employee2.png" alt="">
+                    <h4>Финансовый Директор</h4>
+                    <span>Курганбекова Зарема Ерлановна</span>
+                </div>
+                <div class="employee">
+                    <img src="assets/img/employee3.png" alt="">
+                    <h4>Технический Директор</h4>
+                    <span>Перепелов Александр</span>
+                </div>
+            </div>
+            <div class="employees">
+                <div class="employee">
+                    <img src="assets/img/employee4.png" alt="">
+                    <h4>Коммерческий Директор</h4>
+                    <span>Уразалин Серикбол</span>
+                </div>
+                <div class="employee">
+                    <img src="assets/img/employee5.png" alt="">
+                    <h4>Административный Директор</h4>
+                    <span>Ибраева Раушан</span>
+                </div>
+                <div class="employee">
+                    <img src="assets/img/employee6.png" alt="">
+                    <h4>Исполнительный Директор</h4>
+                    <span>Кашкумбаева Нургуль</span>
+                </div>
+            </div>
+        </div>
+    </section> {% endcomment %}

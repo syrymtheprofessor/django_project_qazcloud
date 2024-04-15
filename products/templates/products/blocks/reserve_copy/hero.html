@@ -1,0 +1,16 @@
+{% load wagtailimages_tags %}
+
+<section class="hero-part">
+    <div class="hero-inner">
+        <div class="hero-col1">
+            <h1>{{self.hero_title}}</h1>
+            <p>{{self.hero_subtitle}}</p>
+            <button class="hero-btn">Оставить заявку</button>
+        </div>
+        <div class="hero-col2">
+            {% image self.hero_image original as hero_block_image %}
+            <img src="{{ hero_block_image.url }}" alt="">
+
+        </div>
+    </div>
+</section>

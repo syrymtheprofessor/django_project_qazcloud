@@ -1,0 +1,25 @@
+{% load wagtailimages_tags %}
+
+<section class="peculiarities" id="product__about">
+    <div class="peculiarities-inner">
+        <h4>{{self.little_header}} </h4>
+        <h2 class="peculiarities__h2">{{self.main_header}} </h2>
+        <p class="peculiarities__p">{{self.paragraph1}} </p>
+        <h2 class="peculiarities__h2__2">{{self.paragraph_header}} </h2>
+        <p class="peculiarities__p">{{self.paragraph2}} </p>
+
+        <div class="peculiarities__block">
+            {% for item in self.icons %}
+            <div class="pblock__item">
+                {% image item.icon original as veeam_cloud_icon %}
+                <img src="{{veeam_cloud_icon.url}}" alt="">
+                <h4>{{item.icons_title}}</h4>
+            </div>
+            {% endfor %}
+        </div>
+
+        <p class="peculiarities__bold">
+            {{self.bold_text}}
+        </p>
+    </div>
+</section>

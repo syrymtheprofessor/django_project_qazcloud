@@ -1,0 +1,261 @@
+<!-- tags/menu.html -->
+{% load wagtailcore_tags wagtailimages_tags static %}
+
+
+<header>
+  <div class="header-container">
+    <nav class="navigation">
+      <a href="{% url 'wagtail_serve' '' %}" class="logo">
+        <img src="{% static 'header/img/logo.png' %}" alt="Logo" class="logo-img" />
+      </a>
+      <ul class="nav_menu">
+        {{map}}
+        {% for menuitem in menuitems %}
+        
+        {% if menuitem.has_submenu %}
+        <li class="nav_list nav_list_menu">
+          <a href="{{ menuitem.link_page.url }}" class="nav_link">
+            <span>{{ menuitem.link_title }}</span>
+            <ion-icon name="chevron-down-outline"></ion-icon>
+          </a>
+          <div class="dropdown">
+            <div class="dropdown-inner">
+              <div class="dropdown-item dropdown-navbar" style="background-color: #F4F5F6;">
+                <div class="item-list">
+                  <form action="" class="d7">
+                    <input type="text" placeholder="Поиск...">
+                  </form>
+                </div>
+                <div class="item-list">
+                  <div class="item-list-info">
+                    {% for submenuitem in menuitem.submenu_items.all %}
+                    <a href="#tab-{{ forloop.parentloop.counter }}-{{forloop.counter}}"
+                      class="tab-link tab-link--active">
+                      <h4 style="margin-top: 15px;left:20%;position:relative">
+                        {{submenuitem.subitem_title}}
+                      </h4>
+                    </a>
+                    {% endfor %}
+                  </div>
+                </div>
+              </div>
+
+
+              {% for submenuitem in menuitem.submenu_items.all %}
+
+              <div id="tab-{{forloop.parentloop.counter}}-{{forloop.counter}}" class="dropdown-content">
+                <div class="dropdown-item">
+                  {% for dropdown in submenuitem.dropdown_items.all %}
+                  <a href="{{dropdown.link_page.url}}">
+                    <div class="item-list">
+                      <div class="item-img">
+                        {% image dropdown.dropdown_icon original as dropdown_image %}
+                        <img src="{{dropdown_image.url}}" alt="Icon" />
+                      </div>
+                      <div class="item-list-info">
+                        <h4>{{ dropdown.dropdown_header }}</h4>
+                        <p>{{ dropdown.dropdown_context }}</p>
+                      </div>
+                    </div>
+                  </a>
+                  {% endfor %}
+                </div>
+              </div>
+              {% endfor %}
+
+
+              {% else %}
+        <li class="nav_list">
+          <a href="{{ menuitem.link }}" class="nav_link">
+            <span>{{ menuitem.link_title }}</span>
+          </a>
+        </li>
+        {% endif %}
+        {% endfor %}
+        <li class="nav_list nav_list_menu">
+          <a href="#!" class="nav_link">
+            <span>QazCloud</span>
+            <ion-icon name="chevron-down-outline"></ion-icon>
+          </a>
+          <div class="dropdown dropdown-unique">
+            <div class="dropdown-inner">
+              <div class="dropdown-item dropdown-navbar" style="background-color: #F4F5F6;">
+                <div class="item-list">
+                  <div class="item-list-info">
+                    <a href="#tab-10" class="tab-link tab-link--active">
+                      <h4 style="margin-top: 15px;left:20%;position:relative">О компании
+                      </h4>
+                    </a>
+                    <a href="#tab-11" class="tab-link">
+                      <h4 style="margin-top: 15px;left:20%;position:relative">Карьера
+                      </h4>
+                    </a>
+                    <a href="#tab-12" class="tab-link">
+                      <h4 style="margin-top: 15px;left:20%;position:relative">
+                        Юридическая<br>
+                        информация
+                      </h4>
+                    </a>
+                    <a href="#tab-13" class="tab-link">
+                      <h4 style="margin-top: 15px;left:20%;position:relative">
+                        Контакты
+                      </h4>
+                    </a>
+                    <a href="#tab-14" class="tab-link">
+                      <h4 style="margin-top: 15px;left:20%;position:relative">
+                        Пресса
+                      </h4>
+                    </a>
+                  </div>
+                </div>
+              </div>
+              <div id="tab-10" class="dropdown-content">
+                <div class="dropdown-item">
+                  <div class="item-list">
+                    <div class="flex-item">
+                      <img src="{% static 'header/assets/img/icon/q1.svg' %}" alt="">
+                      <p class="sub-title">История компании</p>
+                    </div>
+                    <div class="sub-text">
+                      С 2017 года создаем лучшие облачные сервисы на рынке Казахстана
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div id="tab-11" class="dropdown-content">
+                <div class="dropdown-item">
+                  <div class="item-list">
+                    <div class="flex-item">
+                      <img src="{% static 'header/assets/img/icon/q2.svg' %}" alt="">
+                      <p class="sub-title">Карьера в QazCloud</p>
+                    </div>
+                    <div class="sub-text">
+                      <p>Дружный коллектив:</p>
+                      <p>- Развозка за счет компании;</p>
+                      <p>- Дресс код (Smart casual);</p>
+                      <p>- Медицинское страхование для вас и Вашей
+                        семьи (до 4-х);</p>
+                      <p>- Материальная помощь к трудовому отпуску;</p>
+                      <p>- Обучение за счет компании;</p>
+                      <p>- Корпоративные мероприятия, тимбилдинги
+                        за счет компании;</p>
+                      <p>- Бонусы и Премии по итогам оценки
+                        эффективности деятельности;</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div id="tab-12" class="dropdown-content">
+                <div class="dropdown-item dropdown-item-unique">
+                  <div class="item-list">
+                    <div class="flex-item">
+                      <img src="{% static 'header/assets/img/icon/q2.svg' %}" alt="">
+                      <p class="sub-title">Юридическая информация</p>
+                    </div>
+                    <div class="sub-text">
+                      Договоры, соглашения, акты, политики и другие важные бумаги
+                    </div>
+                  </div>
+                  <div class="item-list">
+                    <div class="flex-item">
+                      <img src="{% static 'header/assets/img/icon/q5.svg' %}" alt="">
+                      <p class="sub-title">Юридический адрес</p>
+                    </div>
+                    <div class="sub-text">
+                      Centro Office <br>
+                      <span>Улица Кайым Мухамедханова, 5</span>
+                    </div>
+                  </div>
+                  <div class="item-list">
+                    <div class="flex-item">
+                      <img src="{% static 'header/assets/img/icon/q3.svg' %}" alt="">
+                      <p class="sub-title">Пользовательское соглашение</p>
+                    </div>
+                    <div class="flex-item">
+                      <img src="{% static 'header/assets/img/icon/q4.svg' %}" alt="">
+                      <p class="sub-title">Правила пользования сервисами и услугами</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div id="tab-13" class="dropdown-content">
+                <div class="dropdown-item dropdown-item-unique2">
+                  <div class="item-list">
+                    <div class="flex-item">
+                      <img src="{% static 'header/assets/img/icon/q5.svg' %}" alt="">
+                      <p class="sub-title">Адрес</p>
+                    </div>
+                    <div class="sub-text">
+                      Centro Office <br> <span>Улица Кайым Мухамедханова, 5</span>
+                    </div>
+                    <div class="sub-text">
+                      Samruk-Kazyna Office <br> <span>Улица Сыгынак, 17/10</span>
+                    </div>
+                    <div class="sub-text">
+                      Data Center<br> <span>Улица Республика, строение 3, г. Косшы</span>
+                    </div>
+                    <div class="links">
+                      <a href="#">
+                        <img src="{% static 'header/assets/img/icon/inst.svg' %}" alt="">
+                      </a>
+                      <a href="#">
+                        <img src="{% static 'header/assets/img/icon/face.svg' %}" alt="">
+                      </a>
+                      <a href="#">
+                        <img src="{% static 'header/assets/img/icon/linkedin.svg' %}" alt="">
+                      </a>
+                    </div>
+                  </div>
+                  <div class="item-list">
+                    <div class="flex-item">
+                      <img src="{% static 'header/assets/img/icon/q6.svg' %}" alt="">
+                      <p class="sub-title">Контакты</p>
+                    </div>
+                    <div class="sub-text">
+                      Техническая поддержка<br> <span>8 707 292 39 32</span>
+                    </div>
+                    <div class="sub-text">
+                      Sales<br> <span>8 707 227 23 37</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div id="tab-14" class="dropdown-content">
+                <div class="dropdown-item">
+                  <div class="item-list">
+                    <div class="flex-item">
+                      <img src="{% static 'header/assets/img/icon/q7.svg' %}" alt="">
+                      <p class="sub-title sub-title600">y.dossanova@qazcloud.kz</p>
+                    </div>
+                    <div class="sub-text">
+                      Взять комментарий, написать статью или пригласить на мероприятие
+                    </div>
+                  </div>
+                  <div class="logo-box">
+                    <div class="logo-title">Логотип</div>
+                    <img class="logo-box-logo" src="{% static 'header/assets/img/icon/logotype.svg' %}" alt="">
+                    <div class="flex-item">
+                      <img src="{% static 'header/assets/img/icon/download.svg' %}" alt="">
+                      <p>Скачать логотип</p>
+                    </div>
+                    <div class="flex-item">
+                      <img src="{% static 'header/assets/img/icon/file.svg' %}" alt="">
+                      <p>Руководство по использованию
+                        логотипа QazCloud</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </li>
+      </ul>
+      <div class="nav_action">
+        <a href="#!" class="btn-primary">Связаться с нами</a>
+        <div class="nav_toggle">
+          <ion-icon name="menu-outline"></ion-icon>
+        </div>
+      </div>
+    </nav>
+  </div>
+</header>

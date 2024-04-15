@@ -1,0 +1,20 @@
+{% load wagtailimages_tags %}
+
+
+<section class="hero-part">
+    <div class="hero-main">
+        <div class="hero-top-text">
+            <span>{{self.main_header}}</span>
+        </div>
+        <div class="hero-context">
+            <div class="hero-text">
+                <span>{{self.secondary_header}}</span>
+            </div>
+            <div class="hero-paragraph">
+                <span>{{self.description}}</span>
+            </div>
+        </div>
+    </div>
+</section>
+{% image self.image original as hero_img%}
+<img class="hero-img" src="{{hero_img.url}}" alt="">

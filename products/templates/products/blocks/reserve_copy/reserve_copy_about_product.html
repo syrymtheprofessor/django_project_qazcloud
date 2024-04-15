@@ -1,0 +1,19 @@
+{% load wagtailimages_tags %}
+
+<section class="product__info" id="product__about">
+    <div class="product__info-inner">
+        <h4 class='product__name'>{{self.little_header}} </h4>
+        <h2 class="product__title">{{self.main_header}}</h2>
+        <p class='product__text'>
+            {{self.paragraph1}}
+        </p>
+        {% image self.image original as reserve_copy_ab_prod_image %}
+        <img class='product__img'src="{{reserve_copy_ab_prod_image.url}}">
+        <p class="product__text">
+            {{self.paragraph2}}
+        </p>
+        <p class='last-p'>
+            {{self.paragraph3}}
+        </p> 
+    </div>
+</section>

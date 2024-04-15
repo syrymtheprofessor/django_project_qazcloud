@@ -1,0 +1,22 @@
+<!-- products/blocks/faq.html -->
+{% extends "base.html" %}
+{% load wagtailcore_tags %}
+{% load static %}
+
+{% block extra_css %}
+<link href="{%static 'header/css/vendor.css' %}" rel="stylesheet">
+
+<link rel="stylesheet" href="{% static 'products/blocks/css/advantages_full.css'%}">
+
+{% endblock %}
+
+{% block content %}
+{% for block in page.body %}
+    {% include_block block %}
+{% endfor %}
+{% endblock %}
+
+
+{% block extra_js %}
+<script src="{% static 'products/blocks/js/script.js'%}"></script>
+{% endblock %}

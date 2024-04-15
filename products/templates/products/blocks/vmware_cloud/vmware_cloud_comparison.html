@@ -1,0 +1,28 @@
+{% load wagtailimages_tags %}
+
+<section class="comparison-part">
+    <div class="comparison-inner">
+        <h4>Сравнение</h4>
+        <h2>Выгода в сравнении с on-premise</h2>
+        <div class="comparison-flexbox">
+            <div class="comparison-inner-context">
+                <h4 class="comparison-inner-p-header">CAPEX вместо OPEX</h4>
+                <p>Размещение своих систем в облаке VMware от QazCloud избавит вас от каких бы то ни было издержек,
+                    связанных с приобретением и поддержкой аппаратного комплекса, а также содержанием штата
+                    специалистов,
+                    которые обеспечивают его работоспособность. Все эти проблемы мы берем на себя. Оплачиваются
+                    только
+                    фактически использованные мощности.</p>
+                <h4 class="comparison-inner-p-header">Обеспечение непрерывности</h4>
+                <p>Облако VMware от QazCloud базируется на высококлассном оборудовании лучших мировых вендоров.
+                    Благодаря
+                    профессиональному проектированию наша облачная площадка не имеет единой точки отказа. Мы
+                    гарантируем
+                    качественную и непрерывную работу всех ваших проектов и систем.</p>
+            </div>
+            {% image self.image original as comparison_image %}
+            <img class="comparison-img" src="{{comparison_image.url}}" alt="">
+        </div>
+
+    </div>
+</section>

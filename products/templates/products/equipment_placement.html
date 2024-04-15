@@ -1,0 +1,38 @@
+<!-- products/equipment_placement.html -->
+{% extends "base.html" %}
+{% load wagtailcore_tags %}
+{% load static %}
+
+{% block extra_css %}
+<link href="{%static 'header/css/vendor.css' %}" rel="stylesheet">
+
+<link rel="stylesheet" href="{% static 'products/vmware_cloud_connect/css/owl.carousel.min.css'  %}">
+<link rel="stylesheet" href="{% static 'products/vmware_cloud_connect/css/owl.theme.default.min.css'  %}">
+<link rel="stylesheet" href="{% static 'products/equipment_placement/css/styles.css'%}">
+<link rel="stylesheet" href="{% static 'products/blocks/css/advantages_full.css'%}">
+
+
+{% endblock %}
+
+{% block content %}
+{% for block in page.body %}
+    {% include_block block %}
+{% endfor %}
+{% endblock %}
+
+
+{% block extra_js %}
+
+<script src="{% static 'products/blocks/js/script.js'%}"></script>
+<script src="{%static 'home/js/jquery-3.2.1.min.js' %}"></script>
+<script src="{%static 'home/js/popper.min.js' %}"></script>
+
+<script src="{%static 'home/js/owl.carousel.min.js' %}"></script>
+<script src="{%static 'home/vendor/aos/aos.js' %}"></script>
+<script src="{%static 'home/vendor/glightbox/js/glightbox.min.js' %}"></script>
+<script src="{%static 'home/vendor/purecounter/purecounter_vanilla.js' %}"></script>
+<script src="{%static 'home/vendor/swiper/swiper-bundle.min.js' %}"></script>
+<script src="{%static 'home/js/main.js' %}"></script>
+<script src="{%static 'home/js/col.js' %}"></script>
+<script src="{%static 'home/js/script.js' %}"></script>
+{% endblock %}

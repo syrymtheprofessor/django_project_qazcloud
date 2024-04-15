@@ -1,0 +1,40 @@
+{% load wagtailimages_tags %}
+
+
+<section class="offices-part">
+    <div class="offices-inner">
+        <div class="col1">
+            <div class="office-top-text">
+                <span>{{self.title}}</span>
+            </div>
+
+            <div class="img-with-content">
+                {% image self.image1 original as img%}
+                <img src="{{img.url}}" alt="">
+                <div class="office-content">
+                    <h4>{{self.header1}}</h4>
+                    <span>{{self.description1}}</span>
+                </div>
+            </div>
+
+        </div>
+        <div class="col2">
+            <div class="img-with-content">
+                {% image self.image2 original as img%}
+                <img src="{{img.url}}" alt="">
+                <div class="office-content">
+                    <h4>{{self.header2}}</h4>
+                    <span>{{self.description2}}</span>
+                </div>
+            </div>
+            <div class="img-with-content">
+                {% image self.image3 original as img%}
+                <img src="{{img.url}}" alt="">
+                <div class="office-content">
+                    <h4>{{self.header3}}</h4>
+                    <span>{{self.description3}}</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

@@ -1,0 +1,47 @@
+{% load wagtailimages_tags %}
+
+<section class="very-useful-part">
+    <div class="useful-inner">
+        <h4 class="useful-inner-little-header">{{self.little_header}}</h4>
+        <h2 class="useful-inner-bigger-header">{{self.main_header}}</h2>
+        <div class="useful-flexbox">
+            <div class="useful-col1">
+                <div class="useful-icon">
+                    {% image self.item1_icon original as image_icon%}
+                    <img src="{{image_icon.url}}" alt="">
+                </div>
+                <h4 class="useful-block-header">{{self.item1_title}}</h4>
+                <p class="useful-block-context">{{self.item1_body}}</p>
+                <br>
+
+                <!-- <p class="useful-block-context">Также вы можете настроить RPO (максимальный период, за который могут
+                    быть потеряны данные) и
+                    количество реплик. В этом помогут плагин для VMware Cloud Director® или Veeam Backup &
+                    Replication™.</p>
+                <br>
+                <p class="useful-block-context">Обеспечиваем автоматизацию: быстро переключим с основного
+                    дата-центра на резервный — вам не
+                    придется ничего настраивать вручную.</p> -->
+            </div>
+            <div class="useful-col2">
+                <div class="useful-col2-row1">
+                    <div class="useful-icon">
+                        {% image self.item2_icon original as image_icon%}
+                        <img src="{{image_icon.url}}" alt="">
+                    </div>
+                    <h4 class="useful-block-header">{{self.item2_title}}</h4>
+                    <p class="useful-block-context">{{self.item2_body}}</p>
+                </div>
+                <div class="useful-col2-row2">
+                    <div class="useful-icon">
+                        {% image self.item3_icon original as image_icon %}
+
+                        <img src="{{image_icon.url}}" alt="">
+                    </div>
+                    <h4 class="useful-block-header">{{self.item3_title}}</h4>
+                    <p class="useful-block-context">{{self.item3_body}}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

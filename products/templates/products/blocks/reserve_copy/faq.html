@@ -1,0 +1,38 @@
+{% load static %}
+<section class="faq-part">
+    <div class="faq-inner">
+        <div class="faq-col1">
+
+            <h4>{{ self.header }}</h4>
+            <p>{{ self.subtitle }}</p>
+
+        </div>
+        <div class="faq-col2">
+            <div class="list">
+                {% for faq in self.items %}
+                <div class="faq-div">
+                    <details>
+                        <summary>
+                            <span class="faq-slider-header">{{ faq.question }}</span>
+
+                            <img class="faq-minus faq-icon" src="{% static 'products/blocks/img/faq-minus.png' %}" alt="">
+                            <img class="faq-plus faq-icon" src="{% static '/products/blocks/img/faq-plus.png' %}" alt="">
+
+                            {% comment %} <ion-icon class="faq-plus" name="add-circle-outline"></ion-icon>
+                            <ion-icon class="faq-minus" name="remove-circle-outline"></ion-icon> {% endcomment %}
+
+                        </summary>
+                        <div>
+                            <p class="faq-slider-context">
+                                {{ faq.answer }}
+                            </p>
+                        </div>
+
+                    </details>
+                </div>
+                {% endfor %}
+
+            </div>
+        </div>
+    </div>
+</section>

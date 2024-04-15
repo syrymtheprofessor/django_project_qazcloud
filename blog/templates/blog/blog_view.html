@@ -1,0 +1,163 @@
+{% extends "base.html" %} 
+{% load wagtailimages_tags %} 
+{% load wagtailcore_tags %}
+{% load static %}
+
+
+{% block extra_css%}
+<link href="{%static 'header/css/vendor.css' %}" rel="stylesheet">
+
+<link href="{% static 'blog/css/news/main.css' %}" rel="stylesheet">
+<link href="{% static 'blog/css/news/media.css' %}" rel="stylesheet">
+
+{% endblock %}
+
+{% block content %}
+<!-- START TEMPLATE -->
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+     style="display: block !important; height: 0 !important; width: 0 !important;" width="0" height="0">
+    <symbol id="tmpl-hh__icon-like">
+        <path d="M16.745 7.736l-.662-.59-.047-.042-.001-.001a7 7 0 00-5.819-1.662l6.529 2.295zm0 0l.665-.587m-.665.587l.665-.587m0 0l.043-.038h.001a7 7 0 015.514-1.68l.307.044a7 7 0 013.353 1.582l.636-.743-.636.743a7 7 0 01.566 10.085l-.2.206-.03.024-.028.024-.026.026-9.933 9.839s0 0 0 0a.333.333 0 01-.42.04l-.071-.062-9.968-9.874h0M17.41 7.149L6.518 17.365m0 0l-.007-.006m.007.006l-.007-.006m0 0a7 7 0 01-1.903-3.294m1.903 3.294l-1.903-3.294m0 0a7 7 0 01.1-3.802m-.1 3.803l.1-3.803m0 0a7 7 0 012.074-3.188m-2.074 3.188l2.074-3.188m0 0a7 7 0 013.434-1.634L6.782 7.075z"
+              stroke="#000" stroke-width="2"/>
+    </symbol>
+</svg>
+
+<div class="tmpl-hh__content tmpl-hh__content--active tmpl-hh__content--opacity-1 tmpl-hh__content__security">
+    <div class="tmpl-hh__container">
+        <div class="tmpl-hh__security__top tmpl-hh__flex-items">
+            <div class="tmpl-hh__big-title">НОВОСТИ КОМПАНИИ</div>
+            <form method="get" action="{% url 'search' %}">
+                <input class="tmpl-hh__search" name="q" placeholder="Поиск..."/></div>
+            </form>
+        <div class="tmpl-hh__security__links">
+            <div class="tmpl-hh__links tmpl-hh__flex-items">
+                <a class="tmpl-hh__link tmpl-hh__link--active" href="{{page.get_full_url}}">Все</a>
+            <!-- {% for topic in topics %}
+             <a class="tmpl-hh__link" href="{% url 'blog' %}?topic={{topic.name}}">{{topic.name}}</a>
+            {% endfor %} -->
+                </div>
+            <div class="tmpl-hh__date">
+                <div class="tmpl-hh__week">{% now "l" %}</div>
+                <div class="tmpl-hh__time">{% now "d M, Y"%}</div>
+            </div>
+        </div>
+        <div class="tmpl-hh__security__main-content tmpl-hh__flex-items">
+            <div class="tmpl-hh__body">
+                <div class="tmpl-hh__news__top">
+                    <div class="tmpl-hh__links"><a class="tmpl-hh__link" href="{% pageurl page.get_parent %}" target="_blank">Главная
+                        страница</a><a class="tmpl-hh__link" href="{{page.get_full_url}}" target="_blank">/Новости компании</a></div>
+                    <div class="tmpl-hh__socials"><a href="#" target="_blank"><img src="{% static 'blog/images/inst.svg' %}"/></a><a
+                            href="#" target="_blank"><img src="{% static 'blog/images/face.svg' %}"/></a><a href="#"
+                                                                                        target="_blank"><img
+                            src="{% static 'blog/images/in.svg' %}"/></a></div>
+                </div>
+                {% for article in blog_entries %}
+                
+                <div class="tmpl-hh__main-item">{% image article.feed_image original %}
+                    <div class="tmpl-hh__btns">
+                        <div class="tmpl-hh__date">{{article.creation_date}}</div>
+                        <!-- {% for topic in article.topic.all %}
+                        <div class="tmpl-hh__genre">• {{topic.name}}</div>
+                        {%endfor%} -->
+                    </div>
+                    <div class="tmpl-hh__text">{{article.title}}
+                    </div>
+                </div>
+                {%endfor%}
+            </div>
+            <div class="tmpl-hh__s-content">
+                {% for article in secondary %}
+                <div class="tmpl-hh__main-item">{% image article.feed_image original %}
+                    <div class="tmpl-hh__btns">
+                        <div class="tmpl-hh__date">{{article.creation_date}}</div>
+                         <!-- {% for topic in article.topic.all %}
+                        <div class="tmpl-hh__genre">• {{topic.name}}</div>
+                        {%endfor%} -->
+                    </div>
+                    <div class="tmpl-hh__text">{{article.title}}</div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+        <div class="tmpl-hh__security__mid tmpl-hh__flex-items">
+            <div class="tmpl-hh__popular">
+                <div class="tmpl-hh__sub-title">Популярные</div>
+                {% for article in all_blogs %}
+                <a href="{{article.get_full_url}}">
+                    <div class="tmpl-hh__popular-item">
+                    <div class="tmpl-hh__number">{{forloop.counter}}</div>
+                    <div class="tmpl-hh__body">
+                        <div class="tmpl-hh__popular-item__title">{{article.title}}</div>
+                        <div class="tmpl-hh__text">{{article.author}}</div>
+                        <div class="tmpl-hh__date">{{article.creation_date}}</div>
+                    </div>
+                    </div>
+                </a>
+                {% endfor %}
+            </div>
+            <div class="tmpl-hh__s-content">
+                <div class="tmpl-hh__top">
+                    {% for article in triple_main %}
+                    <div class="tmpl-hh__main-item">{% image article.feed_image original %}
+                        <div class="tmpl-hh__btns">
+                            <div class="tmpl-hh__date">{{article.creation_date}}</div>
+                            <!-- {% for topic in article.topic.all %}
+                            <div class="tmpl-hh__genre">• {{topic.name}}</div>
+                            {%endfor%} -->
+                        </div>
+                        <div class="tmpl-hh__text">{{article.title}}</div>
+                    </div>
+                    {% endfor %}
+                </div>
+                <div class="tmpl-hh__bottom tmpl-hh__flex-items">
+                    {% for article in triple_secondary %}
+                    <div class="tmpl-hh__main-item">{% image article.feed_image original %}
+                        <div class="tmpl-hh__btns">
+                            <div class="tmpl-hh__date">{{article.creation_date}}</div>
+                            <!-- {% for topic in article.topic.all %}
+                            <div class="tmpl-hh__genre">• {{topic.name}}</div>
+                            {%endfor%} -->
+                        </div>
+                        <div class="tmpl-hh__text">{{article.title}}</div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+        <div class="tmpl-hh__security__bottom tmpl-hh__flex-items">
+            {% for article in bottom_two %}
+            <div class="tmpl-hh__main-item"><img src="{{article.cover.url}}"/>
+                <div class="tmpl-hh__btns">
+                    <div class="tmpl-hh__date">{{article.publication_date}}</div>
+                    {% for topic in article.topic.all %}
+                            <div class="tmpl-hh__genre">• {{topic.name}}</div>
+                            {%endfor%}
+                </div>
+                <div class="tmpl-hh__text">{{article.cover_text}}
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+{% endblock content%}
+{% block extra_js%}
+<script src="{% static 'blog/js/tailwindcss.js' %}"></script>
+
+<script>
+    document.addEventListener("DOMContentLoaded",() => {
+        const params = new URLSearchParams(document.location.search);
+        const topic = params.get("topic");
+        if (topic != null){
+        allTopics = document.querySelectorAll(".tmpl-hh__security__links .tmpl-hh__link");
+        for (let i = 0; i < allTopics.length; i++){
+            if(topic == allTopics[i].innerHTML){
+                allTopics[i].className = "tmpl-hh__link tmpl-hh__link--active";
+                continue;
+            }
+            allTopics[i].className = "tmpl-hh__link";
+        }
+    }}
+    )
+</script>
+{% endblock extra_js%}

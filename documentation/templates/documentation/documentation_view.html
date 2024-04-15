@@ -1,0 +1,100 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block extra_css %}
+
+<link href="{%static 'header/css/vendor.css' %}" rel="stylesheet">
+<link rel="stylesheet" href="{% static 'documentation/css/styles.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'header/css/header.css' %}">
+
+
+<style>
+    .documents-header {
+        background: url("{% static 'documentation/img/documents-bg.png' %}");
+    }
+</style>
+
+{% endblock %}
+
+{% block content %}
+<section class="documents-header">
+    <div class="documents-header-inner">
+        <div class="documents-header-content">
+            <h1>Документация</h1>
+            <p>Вы можете тут найти документацию компанию, технические характеристики и много другое.</p>
+        </div>
+    </div>
+</section>
+
+<section class="table-part">
+
+    <div class="table-part-inner">
+        <header class="">
+            <div class="table-header-div"><span class="table-header-text">Документы</span></div>
+            <div class="table-search">
+                {% comment %} <input type="text" placeholder="Поиск...">
+                <button class="footer-search-button"><img class="footer-search-button-img"
+                        src="{% static 'documentation/img/footer-search.png' %}" alt="search-button"></button> 
+                        {% endcomment %}
+            </div>
+        </header>
+
+        <table>
+            <colgroup>
+                <col class="q1" style="width: 10%;">
+                <col class="q2" style="width: 60%;">
+                <col class="q3" style="width: 15%;">
+                <col class="q4" style="width: 15%;">
+            </colgroup>
+            <tbody>
+                <tr class="table-header">
+                    <th class="image-col"></th>
+                    <th class="naming">Наименование</th>
+                    <th class="tb-header-date">Дата</th>
+                    <th class="tb-header-count">Документов: {{docs|length}}</th>
+                </tr>
+                {% for doc in docs %}
+                <tr class="row-table row-text">
+                    <td>
+                        <img class="woow" src="{% static 'documentation/img/file.png' %}" alt="">
+                    </td>
+                    <td class="naming ">
+                        {{doc.name}}
+                    </td>
+                    <td>
+                        {{doc.date|date:"d F o"}}
+                    </td>
+                    <td class="icons-column">
+                        <div class="icons-outer">
+                            <img src="{% static 'documentation/img/eye.png' %}" alt="">
+                            <a href="{{doc.file.url}}" download="{{doc.name}}">
+                                <img src="{% static 'documentation/img/download.png' %}" alt="">
+                            </a>
+                            <a href="{{doc.file.url}}">
+                                {% if doc.filetype == "pdf" %}
+                                <img src="{% static 'documentation/img/pdf.png' %}" alt="">
+                                {% elif doc.filetype == "ppt" %}
+                                <img src="{% static 'documentation/img/powerP.png' %}" alt="">
+                                {% elif doc.filetype == "xls" %}
+                                <img src="{% static 'documentation/img/excel.png' %}" alt="">
+                                {% else %}
+                                <img src="{% static 'documentation/img/word.png' %}" alt="">
+                                {% endif %}
+                            </a>
+                        </div>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</section>
+{% endblock %}
+
+
+{% block extra_js %}
+
+
+
+
+{% endblock %}

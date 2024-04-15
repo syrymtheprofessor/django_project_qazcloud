@@ -1,0 +1,24 @@
+{% load static %}
+{% load wagtailimages_tags %}
+
+
+<section class="private-cloud-part">
+    <div class="private-cloud-inner">
+        <h4>{{self.title}}</h4>
+
+        <p>{{self.body}}</p>
+        <div class="private-cloud-flexbox">
+            {% for item in self.type_items%}
+            {% image item.image original as private_cloud%}
+            <img class="private-cloud-img" src="{{private_cloud.url}}" alt="">
+            <div class="private-cloud-col2">
+                <h3 class="private-cloud-col2-header">{{item.paragraph_header}} </h3>
+                <ul>
+                    <li>{{item.paragraph_context}}</li>
+
+                </ul>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>

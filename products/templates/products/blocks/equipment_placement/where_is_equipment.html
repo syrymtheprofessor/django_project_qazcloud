@@ -1,0 +1,20 @@
+{% load wagtailimages_tags %}
+
+<section class="placement">
+    <div class="placement-inner">
+        <h4>{{self.little_header}} </h4>
+        <h2>{{self.main_header }} </h2>
+        <p class="pl-context">{{self.paragraph}} </p>
+        <div class="placements-icons">
+            {% for item in self.icons %}
+            <div class="placement-icon">
+                {% image item.icon original as placement_icon %}
+                <img src="{{placement_icon.url}}" alt="">
+                <p>{{item.icons_title}} </p>
+            </div>
+            {% endfor %}
+        </div>
+        {% image self.image original as placement_image %}
+        <img class="placement-img" src="{{ placement_image.url }}" alt="">
+    </div>
+</section>

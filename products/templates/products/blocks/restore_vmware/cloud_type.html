@@ -1,0 +1,23 @@
+{% load wagtailimages_tags %}
+
+
+<section class="peculiarities">
+    <div class="peculiarities-inner">
+        <h4>Особенности</h4>
+        <h2>{{self.title}}</h2>
+        <p>{{self.body}}</p>
+        <div class="peculiarities-flexbox">
+            {% for item in self.type_items%}
+            {% image item.image original as item_image%}
+            <img class="peculiarities-img" src="{{item_image.url}}" alt="">
+            <div class="peculiarities-col2">
+                <h3>{{ item.paragraph_header }}</h3>
+                <ul>
+                    <li>{{ item.paragraph_context }}</li>
+                    
+                </ul>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>

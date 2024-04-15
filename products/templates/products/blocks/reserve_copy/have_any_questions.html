@@ -1,0 +1,26 @@
+{% load wagtailimages_tags %}
+{% load static %}
+<section class="any-questions-part">
+    <div class="questions">
+        <div class="question-inner">
+            <div class="question-context">
+                <h2>{{ self.header }}</h2>
+                <p>{{ self.subtitle }}</p>
+                <div class="question-links">
+                    <button class="question-btn">
+                        Связаться с нами<i style="color: white; height: 10px; width: auto; margin-bottom: 3px;"
+                            class="fa-solid fa-chevron-right fa-beat"></i></i>
+                    </button>
+                    <div class="question-link">{{ self.button_subtitle }}</u></div>
+                </div>
+            </div>
+            <div class="question-img">
+                {% image self.image original as question_block_image %}
+                <img src="{{ question_block_image.url }}" alt="">
+            </div>
+        </div>
+        <div class="stroke-outer">
+            <img class="question-stroke" src="{% static 'products/blocks/img/stroke.png' %}" alt="">
+        </div>
+    </div>
+</section>

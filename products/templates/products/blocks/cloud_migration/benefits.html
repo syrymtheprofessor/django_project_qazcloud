@@ -1,0 +1,20 @@
+{% load wagtailimages_tags %}
+
+<section class="advantages" id="advantages__about">
+    <div class="container">
+        <div class="advantages-inner">
+            <h4>{{self.little_header}}</h4>
+            <h2>{{self.main_header}}</h2>
+            <p>{{self.paragraph}}</p>
+        </div>
+        <div class="row gy-4 pros__item_outer">
+            {% for icon_item in self.icons %}
+            <div class="pros__item">
+                {% image icon_item.icon original as migrations_advantages_image %}
+                <img  src="{{migrations_advantages_image.url}}" alt="">
+                <h4>{{icon_item.title}}</h4>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>

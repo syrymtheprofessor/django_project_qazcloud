@@ -1,0 +1,121 @@
+{% extends "base.html"%}
+{% load static wagtailcore_tags wagtailimages_tags %} 
+
+{% block extra_css%}
+<link href="{%static 'header/css/vendor.css' %}" rel="stylesheet">
+<style>
+.iframe-wrapper iframe {
+  width: 100%;
+  height: 400px; /* Желаемая высота iframe */
+  /* Дополнительные стили для iframe */
+}
+</style>
+<link href="{% static 'blog/css/article/main.css' %}" rel="stylesheet"/><link href="{% static 'blog/css/article/media.css' %}" rel="stylesheet"/>
+{% endblock %}
+
+
+{% block content %}
+
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" style="display: block !important; height: 0 !important; width: 0 !important;" width="0" height="0">
+    <symbol id="tmpl-hh__icon-like">
+        <path d="M16.745 7.736l-.662-.59-.047-.042-.001-.001a7 7 0 00-5.819-1.662l6.529 2.295zm0 0l.665-.587m-.665.587l.665-.587m0 0l.043-.038h.001a7 7 0 015.514-1.68l.307.044a7 7 0 013.353 1.582l.636-.743-.636.743a7 7 0 01.566 10.085l-.2.206-.03.024-.028.024-.026.026-9.933 9.839s0 0 0 0a.333.333 0 01-.42.04l-.071-.062-9.968-9.874h0M17.41 7.149L6.518 17.365m0 0l-.007-.006m.007.006l-.007-.006m0 0a7 7 0 01-1.903-3.294m1.903 3.294l-1.903-3.294m0 0a7 7 0 01.1-3.802m-.1 3.803l.1-3.803m0 0a7 7 0 012.074-3.188m-2.074 3.188l2.074-3.188m0 0a7 7 0 013.434-1.634L6.782 7.075z" stroke="#000" stroke-width="2"/>
+    </symbol>
+    </svg>
+
+<div class="tmpl-hh__content tmpl-hh__content--active tmpl-hh__content--opacity-1 tmpl-hh__content__news">
+    <div class="tmpl-hh__container tmpl-hh__flex-items">
+       <div class="tmpl-hh__section tmpl-hh__s-content">
+          <div class="tmpl-hh__news__top">
+             <div class="tmpl-hh__links"><a class="tmpl-hh__link" href="{% pageurl page.get_parent %}">Главная страница</a>
+                <a class="tmpl-hh__link" href="{% pageurl page.get_parent %}">/Новости компании</a><a class="tmpl-hh__link tmpl-hh__link--active" target="_blank">/{{self.title}}</a>
+             </div>
+             <div class="tmpl-hh__socials"><a><img src="{% static 'blog/images/inst.svg' %}"/></a><a href="#" target="_blank"><img src="{% static 'blog/images/face.svg' %}"/></a><a href="#" target="_blank"><img src="{% static 'blog/images/in.svg' %}"/></a></div>
+          </div>
+          <div class="tmpl-hh__news__about">
+             <div class="tmpl-hh__title">{{self.title}}</div>
+             <div class="tmpl-hh__text">
+                 <div class="iframe-wrapper">
+                    {{self.body|richtext}}
+                 </div>
+             </div>
+          </div>
+          <div class="tmpl-hh__news__author tmpl-hh__flex-items">
+             <div class="tmpl-hh__left">
+                <div class="tmpl-hh__author__title">Автор: {{self.author}}</div>
+                <div class="tmpl-hh__time">{{self.creation_date}}</div>
+             </div>
+             <div class="tmpl-hh__right">
+                <div class="tmpl-hh__share">
+                   <img src="{% static 'blog/images/share.svg' %}"/>
+                   <div class="tmpl-hh__socials"><a href="#" target="_blank"><img src="{% static 'blog/images/inst.svg' %}"/></a><a href="#" target="_blank"><img src="{% static 'blog/images/face.svg' %}"/></a><a href="#" target="_blank"><img src="{% static 'blog/images/in.svg' %}"/></a></div>
+                </div>
+                <div class="tmpl-hh__likes" onclick="addLike()">
+                   <svg class="tmpl-hh__like" xmlns="http://www.w3.org/2000/svg" viewbox="0 0 512 452.3">
+                      <path d="M474.6 44.4C449.4 15.8 414.4 0 376 0c-53.9 0-88.1 32.2-107.3 59.2-5 7-9.2 14-12.7 20.7-3.5-6.6-7.8-13.7-12.7-20.7C224.1 32.2 189.9 0 136 0 97.6 0 62.6 15.8 37.4 44.4 13.3 71.8 0 108.4 0 147.5c0 42.6 16.6 82.2 52.3 124.7 31.9 38 77.8 77.1 131 122.4 19.8 16.9 40.3 34.3 62.1 53.4l.7.6c2.8 2.5 6.4 3.7 9.9 3.7s7.1-1.2 9.9-3.7l.7-.6c21.8-19.1 42.3-36.5 62.1-53.4 53.2-45.3 99.1-84.4 131-122.4 35.7-42.5 52.3-82.1 52.3-124.7 0-39.1-13.3-75.7-37.4-103.1zM309.2 371.8c-17.1 14.6-34.7 29.5-53.2 45.6-18.5-16.1-36.1-31.1-53.2-45.6C98.7 283.1 30 224.5 30 147.5c0-31.8 10.6-61.4 29.9-83.2C79.3 42.2 106.4 30 136 30c41.1 0 67.7 25.3 82.8 46.6 13.5 19.1 20.6 38.3 23 45.7 2 6.2 7.8 10.4 14.3 10.4s12.3-4.2 14.3-10.4c2.4-7.4 9.5-26.6 23-45.7C308.3 55.3 334.9 30 376 30c29.6 0 56.7 12.2 76.1 34.3 19.3 21.9 29.9 51.4 29.9 83.2 0 77-68.7 135.6-172.8 224.3z"></path>
+                   </svg>
+                   <!-- <div class="tmpl-hh__count">{{article.number_of_likes}}</div> -->
+                </div>
+             </div>
+          </div>
+          <div class="tmpl-hh__news__comment">
+              <div class="tmpl-hh__text">Оставить комментарий</div>
+              <form method="POST" class="bg-gray-600 p-4 rounded-lg">
+                {% csrf_token %}
+                  <div class="tmpl-hh__top">
+                      {{comment_form.author}}
+                      {{comment_form.author_email}}
+                  </div>
+                <div class="tmpl-hh__bottom">
+                 {{ comment_form.content }}
+                    <button class="tmpl-hh__send" type="submit">Отправить</button>
+                     </div>
+                </form>
+          </div>
+           {% for comment in comments %}
+          <div class="tmpl-hh__news__article">
+             <div class="tmpl-hh__name">{{comment.author}}</div>
+             <div class="tmpl-hh__text">
+                <p>{{ comment.content|safe }}</p>
+             </div>
+             <div class="tmpl-hh__grades">
+                <img src="{% static 'blog/images/share.svg' %}"/>
+                <div class="tmpl-hh__likes">
+                   <img src="{% static 'blog/images/red like.svg' %}"/>
+                </div>
+                <img src="{% static 'blog/images/send.svg' %}"/>
+                <div class="tmpl-hh__time">{{comment.date_posted}}</div>
+                 <!-- {% if user.is_staff or user.id == comment.author.id %}
+                 <form action="{% url 'comment_delete' article.slug comment.pk %}" method="post">
+                    {% csrf_token %}
+                    <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" type="submit">
+                        Удалить
+                    </button>
+                 </form>
+                 {% endif %} -->
+             </div>
+          </div>
+           {% endfor %}
+       </div>
+       <div class="tmpl-hh__section tmpl-hh__s-navbar">
+          <div class="tmpl-hh__item">
+             <div class="tmpl-hh__sub-title"><span>Join to</span> QAZCLOUD</div>
+             <div class="tmpl-hh__text">Будьте в курсе новостей платформы и анонсов мероприятий</div>
+             <a href="{% pageurl page.get_parent %}"><button>Подробнее</button></a>
+          </div>
+           <div class="tmpl-hh__popular">
+                <div class="tmpl-hh__sub-title">Популярные</div>
+                <!-- {% for similar_article in article.similar_articles %}
+                <div class="tmpl-hh__popular-item">
+                    <div class="tmpl-hh__number">{{forloop.counter}}</div>
+                    <div class="tmpl-hh__body">
+                        <div class="tmpl-hh__popular-item__title">{{similar_article.title}}</div>
+                        <div class="tmpl-hh__text">{{similar_article.author}}</div>
+                        <div class="tmpl-hh__date">{{similar_article.publication_date}}</div>
+                    </div>
+                </div>
+                    {% endfor %} -->
+       </div>
+    </div>
+ </div>
+
+{% endblock %}

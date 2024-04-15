@@ -1,0 +1,21 @@
+{% load wagtailimages_tags %}
+
+<section class="fast-and-safe" id="fast-and-safe__about">
+    <div class="container">
+        <div class="fast-and-safe-inner">
+            <h4>{{self.little_header}}</h4>
+            <h2>{{self.main_header}}</h2>
+            <p>{{self.paragraph1}}</p>
+            <p>{{self.paragraph2}}</p>
+
+        </div>
+    </div>
+    <div class="qazcloud">
+        <div class="container">
+
+            {% image self.image original as fast_safe_image %}
+            <img class="qazcloud-imagge" src="{{ fast_safe_image.url }}" alt="">
+        </div>
+
+    </div>
+</section>

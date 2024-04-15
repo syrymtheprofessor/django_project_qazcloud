@@ -1,0 +1,67 @@
+{% load wagtailimages_tags %}
+{% load static %}
+<section class="advantage" id='advantages__about'>
+  <div class="advantage__inner">
+    <h4 class="about__advantage">{{ self.mini_header }}</h4>
+    <h1 class="advantage__title">{{ self.header }}</h1>
+    <div class="row gy-4">
+    {% comment %} <div class="block"> {% endcomment %}
+
+        {% for item in self.items%}
+
+        {% comment %} <div class="block1"> {% endcomment %}
+          <div class="works__item sssss">
+            {% image item.icon original as icon_image %}
+            <img class="red-img" src="{{ icon_image.url }}" alt="">
+            <img class="white-img" src="{{ icon_image.url }}" alt="">
+            <img class="works__img" src="{% static 'products/blocks/img/advantages.png'%}">
+
+            <div class="works__info">
+              <h1 class="work__title">{{ item.title}}</h1>
+              <h4 class="work__info">{{ item.subtitle }}</h4>
+            </div>
+
+          </div>
+        {% comment %} </div> {% endcomment %}
+        {% endfor%}
+      {% comment %} </div> {% endcomment %}
+    </div>
+    <p class="benefits-inner-context">{{self.paragraph}}</p>
+  </div>
+
+</section>
+
+
+
+<!-- <div class="works__item">
+            <img class="red-img" src="assets/img/green-table.svg" alt="">
+            <img class="white-img" src="assets/img/fluent_person-available-24-regular.svg" alt="">
+            <img class="works__img" src="assets/img/advantages.png" alt="">
+            <div class="works__info">
+                <h1 class="work__title">Бэкапы не влияют на работу виртуальной машины</h1>
+                <h4 class="work__info">Сначала мы снимаем снапшот с диска, а затем делаем бэкап со снапшота. В итоге резервное копирование не влияет на производительность облачного сервера.</h4>
+            </div>
+          </div> -->
+<!-- </div> -->
+
+<!-- <div class="block1">
+          <div class="works__item">
+            <img class="red-img" src="assets/img/green-calc.svg" alt="">
+            <img class="white-img" src="assets/img/white-calc.svg" alt="">
+            <img class="works__img" src="assets/img/advantages.png" alt="">
+            <div class="works__info">
+                <h1 class="work__title">Полный контроль расходов</h1>
+                <h4 class="work__info">Вы сами сможете контролировать расходы за счет настройки глубины хранения и удаления ненужных копий вручную.</h4>
+            </div>
+          </div>
+          <div class="works__item">
+            <img class="red-img" src="assets/img/green-sound.svg" alt="">
+            <img class="white-img" src="assets/img/white-sound.svg" alt="">
+            <img class="works__img" src="assets/img/advantages.png" alt="">
+            <div class="works__info">
+                <h1 class="work__title">Легкая настройка через панель</h1>
+                <h4 class="work__info">Вам не придется ничего настраивать внутри виртуальной машины, разбираться с внешним ПО и лицензиями. Все что нужно — создать план бэкапов и задать параметры хранения в панели.</h4>
+            </div>
+          </div>
+        </div>
+      </div> -->

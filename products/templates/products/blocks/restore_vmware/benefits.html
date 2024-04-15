@@ -1,0 +1,25 @@
+{% load wagtailimages_tags %}
+
+<section class="benefits-part">
+    <div class="benefits-inner">
+        <h4 class="benefits-inner-little-header">{{self.little_header}}</h4>
+        <h2 class="benefits-inner-bigger-header">{{self.main_header}}</h2>
+        <p class="benefits-inner-main-context">{{self.paragraph}}</p>
+        <div class="benefits-flexbox">
+            <div class="benefits-col1">
+                <h3>{{self.context_header}}</h3>
+                <ul>
+                    {% for item in self.context_list_items %}
+                    <li>{{item.benefit}}</li>
+                    {% endfor %}
+                </ul>
+            </div>
+            <div class="benefits-col2">
+                {% image self.image original as restore_benefits_img %}
+                <img src="{{restore_benefits_img.url}}" alt="">
+            </div>
+
+        </div>
+
+    </div>
+</section>

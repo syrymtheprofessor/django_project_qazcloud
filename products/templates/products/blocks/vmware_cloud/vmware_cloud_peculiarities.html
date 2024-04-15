@@ -1,0 +1,27 @@
+{% load wagtailimages_tags %}
+
+<section class="peculiarities" >
+    <div class="peculiarities-inner">
+        <h4>{{self.little_header}}</h4>
+        <h2 class="peculiarities-inner-header">{{self.main_header}}</h2>
+        <h4>{{self.paragraph_header}} </h4>
+
+        <p>{{self.paragraph_context}} </p>
+
+        {% image self.image original as peculiarities_image %}
+        <img class="peculiarities-img" src="{{peculiarities_image.url}}" alt="">
+        <h4>{{self.icons_header}} </h4>
+
+        <div class="peculiarities-flexbox">
+            {% for icon_item in self.icons %}
+            <div class="peculiarities-flexbox-item">
+                {% image icon_item.icon original as peculiarities_icon %}
+                <img src="{{peculiarities_icon.url}}" alt="">
+                <p>{{icon_item.icons_title}}</p>
+            </div>
+            {% endfor %}
+
+        </div>
+
+    </div>
+</section>

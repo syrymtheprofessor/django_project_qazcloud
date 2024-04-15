@@ -1,0 +1,15 @@
+<section class="service" id='service__about'>
+    <div class="service__inner">
+        <h4 class="about__service">{{ self.mini_header }}</h4>
+        <h1 class="service__title">{{ self.header }}</h1>
+        <table>
+            {% for row in self.table_rows %}
+            <tr>
+                <td>{{ row.column1 }}</td>
+                <td>{{ row.column2 }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+        <p class="service__info">{{self.paragraph}}</p>
+    </div>
+</section>
